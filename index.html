@@ -253,7 +253,7 @@
                         <span>24/7 service</span>
                     </div>
                 </div>
-                <a href="https://luqmanapriantodarmawan.github.io/" class="btn">learn more</a>
+                <a href="https://luqmanapriantodarmawan.github.io/RestaurantWebsite/" class="btn">learn more</a>
             </div>
 
         </div>
@@ -675,8 +675,8 @@
 
             <div class="box">
                 <h3>Contact Info</h3>
-                <a href="#">(021) 1234567</a>
-                <a href="#">0813 8591 2298</a>
+                <a>(021) 1234567</a>
+                <a>0813 8591 2298</a>
                 <a href="mailto:luqmandarmawan532@gmail.com">luqmandarmawan532@gmail.com</a>
                 <a href="mailto:luqmanfn17@gmail.com">luqmanfn17@gmail.com</a>
                 <a href="https://goo.gl/maps/PLf682NnDP5JX9p99">Tangerang, Indonesia - 15143</a>
@@ -710,20 +710,43 @@
 
     <!-- Ketika Submit di klik,reset form,munculkan alert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         function myFunction() {
             document.getElementById("myForm").reset();
-            Swal.fire({
-                title: '<strong>Thank you</strong>',
-                icon: 'success',
-                html: 'We have received your <b>order</b>',
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+
+                    cancelButton: 'btn btn-danger',
+                    confirmButton: 'btn btn-success',
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "please check your order again!",
+                icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#53AF61',
-                cancelButtonColor: '#d33',
-                confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
-                confirmButtonAriaLabel: 'Thumbs up, great!',
-                cancelButtonText: '<i class="fa fa-thumbs-down"></i> Bad!',
-                cancelButtonAriaLabel: 'Thumbs down, bad!'
+                confirmButtonText: 'Yes, make an order!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire(
+                        'Thank You!',
+                        'We have received your order .',
+                        'success'
+                    )
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your order has been cancelled',
+                        'error'
+                    )
+                }
             })
         }
     </script>
