@@ -253,7 +253,7 @@
                         <span>24/7 service</span>
                     </div>
                 </div>
-                <a href="https://luqmanapriantodarmawan.github.io/RestaurantWebsite/" class="btn">learn more</a>
+                <a href="https://github.com/LuqmanApriantoDarmawan" class="btn">learn more</a>
             </div>
 
         </div>
@@ -686,7 +686,8 @@
                 <h3>Follow us</h3>
                 <a href="https://facebook.com/luqman.darmawan.24">Facebook</a>
                 <a href="https://instagram.com/luqman_lk8">Instagram</a>
-                <a href="https://twitter.com">Twitter</a>
+                <a href="https://twitter.com/TheAlphaKnight">Twitter</a>
+                <a href="https://id.linkedin.com/">Linkedin</a>
             </div>
 
         </div>
@@ -713,7 +714,6 @@
 
     <script>
         function myFunction() {
-            document.getElementById("myForm").reset();
             const swalWithBootstrapButtons = Swal.mixin({
                 customClass: {
 
@@ -733,6 +733,7 @@
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
+                    document.getElementById("myForm").reset();
                     swalWithBootstrapButtons.fire(
                         'Thank You!',
                         'We have received your order .',
@@ -741,6 +742,7 @@
                 } else if (
                     result.dismiss === Swal.DismissReason.cancel
                 ) {
+                    document.getElementById("myForm").reset();
                     swalWithBootstrapButtons.fire(
                         'Cancelled',
                         'Your order has been cancelled',
